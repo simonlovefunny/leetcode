@@ -131,12 +131,12 @@ public class BinaryTreeSolution {
     /**
      * 递归实现
      */
-    public static void helper(TreeNode root, ArrayList<Integer> re){
+    public static void postorderHelper(TreeNode root, ArrayList<Integer> re){
         if(root==null){
             return;
         }
-        helper(root.left,re);
-        helper(root.right,re);
+        postorderHelper(root.left,re);
+        postorderHelper(root.right,re);
         re.add(root.val);
     }
     public static ArrayList<Integer> postorderTraversal(TreeNode root) {
@@ -144,9 +144,33 @@ public class BinaryTreeSolution {
         if(root==null){
             return re;
         }
-        helper(root,re);
+        postorderHelper(root,re);
         return re;
     }
+
+    //3.Given a binary tree, return the level order traversal of its nodes' values. (ie, from left to right, level by level).
+    //     层级遍历
+//     如：
+//             a
+//           /   \
+//         b      c
+//       /  \
+//      d    f
+//     /      \
+//    e        g
+//   返回 [a,b,c,d,f,e,g]
+
+    //TODO
+    public void levelorderHelper(TreeNode root, ArrayList<Integer> res){
+
+
+    }
+
+    public static ArrayList<Integer> levelorderTraversal(TreeNode root){
+
+    }
+
+
 
 
     public static void main(String[] args) {
