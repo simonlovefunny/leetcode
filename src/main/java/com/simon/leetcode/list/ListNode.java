@@ -1,4 +1,4 @@
-package com.simon.leetcode.list.linkedlist.mergertwolists;
+package com.simon.leetcode.list;
 
 /**
  * Definition for singly-linked list.

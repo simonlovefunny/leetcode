@@ -1,8 +1,6 @@
 package com.simon.leetcode.tree.binarytree.traversal;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Stack;
+import java.util.*;
 
 /**
  * 二分树算法
@@ -130,54 +128,24 @@ public class BinaryTreeSolution {
 //    e        g
 //   返回 [e,d,g,f,b,a,c]
 
-
-    public void postorderHelper(TreeNode root,ArrayList<Integer> res){
-
-        if(null == root){
-          return;
+    /**
+     * 递归实现
+     */
+    public static void helper(TreeNode root, ArrayList<Integer> re){
+        if(root==null){
+            return;
         }
-
-        postorderHelper(root.left,res);
-        if(null == root.right){
-            res.add(root.val);
-        }else{
-            postorderHelper(root.right,res);
-        }
-
-
+        helper(root.left,re);
+        helper(root.right,re);
+        re.add(root.val);
     }
-
-
-
-    public List<Integer> postorderTraversal(TreeNode root){
-
-        ArrayList<Integer> list=new ArrayList<Integer>();
-
-        if(null == root){
-            return list;
+    public static ArrayList<Integer> postorderTraversal(TreeNode root) {
+        ArrayList<Integer> re = new ArrayList<Integer>();
+        if(root==null){
+            return re;
         }
-
-        Stack<TreeNode> stack=new Stack();
-
-        while(null != stack || null != root){
-
-           if(null != root){
-               stack.push(root);
-               root=root.left;
-           }else{
-               root=stack.pop();
-
-               if(null == root.right){
-                  list.add(root.val);
-               }else{
-
-               }
-
-
-           }
-        }
-
-        return list;
+        helper(root,re);
+        return re;
     }
 
 
@@ -186,12 +154,21 @@ public class BinaryTreeSolution {
         TreeNode root=new TreeNode(5) ;
         TreeNode left=new TreeNode(3) ;
         TreeNode right=new TreeNode(2) ;
-        root.setLeft(left);
-        root.setRight(right);
         TreeNode left1=new TreeNode(7) ;
         TreeNode left2=new TreeNode(8) ;
+        TreeNode right1=new TreeNode(6) ;
         left1.setLeft(left2);
         left.setLeft(left1);
+        left.setRight(right1);
+
+        root.setLeft(left);
+        root.setRight(right);
+
+        ArrayList<Integer> res=new ArrayList<Integer>();
+
+        res=postorderTraversal(root);
+
+        System.out.println(123);
 
     }
 }

@@ -1,4 +1,4 @@
-package com.simon.leetcode.list.linkedlist.mergertwolists;
+package com.simon.leetcode.list;
 
 /**
  * 将两个有序list元素轮流合并为一个新list
